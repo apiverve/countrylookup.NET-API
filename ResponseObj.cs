@@ -143,6 +143,9 @@ public class ResponseObj
     [JsonProperty("data")]
     public data data { get; set; }
 
+    [JsonProperty("code")]
+    public int code { get; set; }
+
 }
 
 }
