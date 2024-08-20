@@ -70,7 +70,7 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```
-var queryOptions = new countrylookupQueryOptions {
+var queryOptions = new CountryLookupQueryOptions {
   country = "USA"
 };
 ```
@@ -200,7 +200,8 @@ if(response.error != null) {
         ]
       }
     ]
-  }
+  },
+  "code": 200
 }
 ```
 
