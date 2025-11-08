@@ -4,148 +4,163 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class eng
-{
-    [JsonProperty("official")]
-    public string official { get; set; }
+    /// <summary>
+    /// Eng data
+    /// </summary>
+    public class Eng
+    {
+        [JsonProperty("official")]
+        public string Official { get; set; }
 
-    [JsonProperty("common")]
-    public string common { get; set; }
+        [JsonProperty("common")]
+        public string Common { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Native data
+    /// </summary>
+    public class Native
+    {
+        [JsonProperty("eng")]
+        public Eng Eng { get; set; }
 
-public class native
-{
-    [JsonProperty("eng")]
-    public eng eng { get; set; }
+    }
+    /// <summary>
+    /// Name data
+    /// </summary>
+    public class Name
+    {
+        [JsonProperty("common")]
+        public string Common { get; set; }
 
-}
+        [JsonProperty("official")]
+        public string Official { get; set; }
 
-public class name
-{
-    [JsonProperty("common")]
-    public string common { get; set; }
+        [JsonProperty("native")]
+        public Native Native { get; set; }
 
-    [JsonProperty("official")]
-    public string official { get; set; }
+    }
+    /// <summary>
+    /// USD data
+    /// </summary>
+    public class USD
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-    [JsonProperty("native")]
-    public native native { get; set; }
+        [JsonProperty("symbol")]
+        public string Symbol { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Currencies data
+    /// </summary>
+    public class Currencies
+    {
+        [JsonProperty("USD")]
+        public USD USD { get; set; }
 
-public class uSD
-{
-    [JsonProperty("name")]
-    public string name { get; set; }
+    }
+    /// <summary>
+    /// Languages data
+    /// </summary>
+    public class Languages
+    {
+        [JsonProperty("eng")]
+        public string Eng { get; set; }
 
-    [JsonProperty("symbol")]
-    public string symbol { get; set; }
+    }
+    /// <summary>
+    /// Countries data
+    /// </summary>
+    public class Countries
+    {
+        [JsonProperty("name")]
+        public Name Name { get; set; }
 
-}
+        [JsonProperty("tld")]
+        public string[] Tld { get; set; }
 
-public class currencies
-{
-    [JsonProperty("USD")]
-    public uSD uSD { get; set; }
+        [JsonProperty("cca2")]
+        public string Cca2 { get; set; }
 
-}
+        [JsonProperty("ccn3")]
+        public string Ccn3 { get; set; }
 
-public class languages
-{
-    [JsonProperty("eng")]
-    public string eng { get; set; }
+        [JsonProperty("cca3")]
+        public string Cca3 { get; set; }
 
-}
+        [JsonProperty("cioc")]
+        public string Cioc { get; set; }
 
-public class countries
-{
-    [JsonProperty("name")]
-    public name name { get; set; }
+        [JsonProperty("independent")]
+        public bool Independent { get; set; }
 
-    [JsonProperty("tld")]
-    public string[] tld { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-    [JsonProperty("cca2")]
-    public string cca2 { get; set; }
+        [JsonProperty("currencies")]
+        public Currencies Currencies { get; set; }
 
-    [JsonProperty("ccn3")]
-    public string ccn3 { get; set; }
+        [JsonProperty("capital")]
+        public string[] Capital { get; set; }
 
-    [JsonProperty("cca3")]
-    public string cca3 { get; set; }
+        [JsonProperty("altSpellings")]
+        public string[] AltSpellings { get; set; }
 
-    [JsonProperty("cioc")]
-    public string cioc { get; set; }
+        [JsonProperty("region")]
+        public string Region { get; set; }
 
-    [JsonProperty("independent")]
-    public bool independent { get; set; }
+        [JsonProperty("subregion")]
+        public string Subregion { get; set; }
 
-    [JsonProperty("status")]
-    public string status { get; set; }
+        [JsonProperty("languages")]
+        public Languages Languages { get; set; }
 
-    [JsonProperty("currencies")]
-    public currencies currencies { get; set; }
+        [JsonProperty("latlng")]
+        public int[] Latlng { get; set; }
 
-    [JsonProperty("capital")]
-    public string[] capital { get; set; }
+        [JsonProperty("landlocked")]
+        public bool Landlocked { get; set; }
 
-    [JsonProperty("altSpellings")]
-    public string[] altSpellings { get; set; }
+        [JsonProperty("borders")]
+        public string[] Borders { get; set; }
 
-    [JsonProperty("region")]
-    public string region { get; set; }
+        [JsonProperty("area")]
+        public int Area { get; set; }
 
-    [JsonProperty("subregion")]
-    public string subregion { get; set; }
+        [JsonProperty("flag")]
+        public string Flag { get; set; }
 
-    [JsonProperty("languages")]
-    public languages languages { get; set; }
+        [JsonProperty("majorCities")]
+        public string[] MajorCities { get; set; }
 
-    [JsonProperty("latlng")]
-    public int[] latlng { get; set; }
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("search")]
+        public string Search { get; set; }
 
-    [JsonProperty("landlocked")]
-    public bool landlocked { get; set; }
+        [JsonProperty("countries")]
+        public Countries[] Countries { get; set; }
 
-    [JsonProperty("borders")]
-    public string[] borders { get; set; }
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-    [JsonProperty("area")]
-    public int area { get; set; }
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-    [JsonProperty("flag")]
-    public string flag { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-    [JsonProperty("majorCities")]
-    public string[] majorCities { get; set; }
-
-}
-
-public class data
-{
-    [JsonProperty("search")]
-    public string search { get; set; }
-
-    [JsonProperty("countries")]
-    public countries[] countries { get; set; }
-
-}
-
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
-
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
